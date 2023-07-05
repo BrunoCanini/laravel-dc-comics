@@ -6,7 +6,7 @@
     <div class="row g-4">
         <div class="col">
             <div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, delectus ad esse illum omnis earum eligendi sint a minus quasi, inventore nulla autem. Maxime voluptatem eligendi veniam voluptates. Soluta, sunt!</p>
+                <button class="btn btn-primary my-4"><a class="text-light" href="{{ route("comics.create") }}">Aggiungi Nuovo</a></button>
             </div>
         </div>
     </div>

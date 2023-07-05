@@ -2,12 +2,17 @@
 
 @section('content')
 <div class="container my-3">
-    <h1>Dettagli: {{$comic->title}}</h1>
+    <h1>Dettagli:</h1>
     <div class="row g-4">
         <div class="col">
-            <div>
-                <a href="{{ route("home")}}">Torna alla lista comics</a>
-            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{{$comic->thumb}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{$comic->title}}</h5>
+                  <p class="card-text">{{$comic->description}}</p>
+                  <a href="{{ route("home")}}" class="btn btn-primary">Torna alla lista comics</a>
+                </div>
+              </div>
         </div>
     </div>
 </div>
