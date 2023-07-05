@@ -11,6 +11,7 @@
                   <h5 class="card-title">{{$comic->title}}</h5>
                   <p class="card-text">{{$comic->description}}</p>
                   <a href="{{ route("home")}}" class="btn btn-primary">Torna alla lista comics</a>
+                  <a href="{{ route("comics.edit", $comic->id)}}" class="btn btn-primary my-2">Modifica Comics</a>
                 </div>
               </div>
         </div>
