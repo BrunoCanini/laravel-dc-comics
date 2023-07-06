@@ -15,37 +15,37 @@
                 @enderror
 
                 <label for="name">Description</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="description" id="title" value="{{old("description")}}">
+                <input class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="title" value="{{old("description")}}">
                 @error("description")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
                 <label for="name">Thumb</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="thumb" id="title" value="{{old("thumb")}}">
+                <input class="form-control @error('thumb') is-invalid @enderror" type="text" name="thumb" id="title" value="{{old("thumb")}}">
                 @error("thumb")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
                 <label for="name">Price</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="price" id="title" value="{{old("price")}}">
+                <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="title" value="{{old("price")}}">
                 @error("price")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
                 <label for="name">Series</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="series" id="title" value="{{old("series")}}">
+                <input class="form-control @error('series') is-invalid @enderror" type="text" name="series" id="title" value="{{old("series")}}">
                 @error("series")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
                 <label for="name">Sale Date</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="sale_date" id="title" value="{{old("sale_date")}}">
+                <input class="form-control @error('sale_date') is-invalid @enderror" type="text" name="sale_date" id="title" value="{{old("sale_date")}}">
                 @error("sale_date")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
                 <label for="name">Type</label>
-                <input class="form-control @error('title') is-invalid @enderror" type="text" name="type" id="title" value="{{old("type")}}">
+                <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="title" value="{{old("type")}}">
                 @error("type")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror

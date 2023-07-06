@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comic;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -17,6 +18,23 @@ class ComicController extends Controller
         $comics= Comic::all();
         
         return view("comics.index", compact("comics"));
+    }
+
+    private function validateProduct($data) {
+        $validator = Validator::make($data, [
+            "title" => "required|min:5|max:50",
+            "description" => "required|min:5|max:65535",
+            "thumb" => "required|min:5",
+            "price" => "required|min:5",
+            "series" => "required|min:5|max:255",
+            "sale_date" => "required|max:20",
+            "type" => "required|min:5",
+        ], [
+            "title.required" => "Il titolo è obbligatorio",
+            "title.min" => "Il titolo deve essere almeno di :min caratteri"
+        ])->validate();
+
+        return $validator;
     }
 
     /**
@@ -39,17 +57,17 @@ class ComicController extends Controller
     public function store(Request $request)
     {   
 
-        $request->validate([
-            "title" => "required|min:5|max:50",
-            "description" => "required|min:5|max:65535",
-            "thumb" => "required|min:5",
-            "price" => "required|min:5",
-            "series" => "required|min:5|max:255",
-            "sale_date" => "required|max:20",
-            "type" => "required|min:5",
-        ]);
+        // $request->validate([
+        //     "title" => "required|min:5|max:50",
+        //     "description" => "required|min:5|max:65535",
+        //     "thumb" => "required|min:5",
+        //     "price" => "required|min:5",
+        //     "series" => "required|min:5|max:255",
+        //     "sale_date" => "required|max:20",
+        //     "type" => "required|min:5",
+        // ]);
 
-        $data= $request->all();
+        $data = $this->validateProduct( $request->all() );
 
         $newComic = new Comic;
         $newComic->title = $data['title'];
@@ -98,7 +116,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data= $request->all();
+        $data = $this->validateProduct( $request->all() );
 
         $comic->title = $data['title'];
         $comic->description = $data['description'];
@@ -109,7 +127,7 @@ class ComicController extends Controller
         $comic->type = $data['type'];
         $comic->update();
 
-        return view("comics.show", compact("comic"));
+        return redirect()->route('comics.show', compact("comic"));
 
     }
 
@@ -125,4 +143,6 @@ class ComicController extends Controller
 
         return redirect()->route('comics.index');
     }
+
+
 }
